@@ -1,0 +1,73 @@
+* {
+    margin: 0px;
+    font-family: 'Baloo 2', cursive;
+}
+
+body {
+    padding-top: 50px;
+    padding-left: 175px;
+    padding-bottom: 100px;
+}
+
+#cabecalho {
+    text-align: left;
+    padding-top: 50px;
+}
+
+.cabecalho-h1 {
+    padding-bottom: 20px;
+    font-size: 40px;
+    line-height: 45px;
+}
+
+.cabecalho-p {
+    font-size: 17px;
+    padding-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#delivery-infos {
+    display: grid;
+    grid-template-columns: 250px 250px;
+}
+
+.deliveryInfos-text {
+    font-size: 10pt;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#img-lateral {
+    position: absolute;
+    margin-top : -320px;
+    margin-left: 525px;
+}
+
+.tituloCafes {
+    padding: 75px 0px 50px 0px;
+}
+
+#cafes {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    text-align: center;
+}
+
+#coffeeInfos {
+    width: 240px;
+}
+
+#span-1 {
+    color: #C47F17;
+    background-color: #F1E9C9;
+    font-size: 12pt;
+    margin: 3px;
+    padding: 4px;
+    border-radius: 20px;
+    
+}
+
+#span-2 {
+    color: #8D8686;
+    font-size: 11pt;
+}
