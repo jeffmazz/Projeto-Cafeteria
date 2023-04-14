@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +17,9 @@
 
 <body>
  
-    <header>
+    <header id="header">
         <img src="fotos/Logo.png">
+        <img src="fotos/carrinho.png" id="headerCarrinho">   
     </header>
 
     <div id="cabecalho">
@@ -26,153 +28,293 @@
 
         <p class="cabecalho-p"> Com o Coffee Delivery você recebe o seu café onde estiver, a <br> qualquer hora </p>
 
+        <img id="img-lateral" src="fotos/logo2.png">
+
+        <div id="delivery-infos">
+
+            <p class="deliveryInfos-text"> <img src="fotos/info-1.png"> Compra simples e segura </p>
+            <p class="deliveryInfos-text"> <img src="fotos/info-2.png"> Embalagem mantém o café intacto </p>
+            <p class="deliveryInfos-text"> <img src="fotos/info-3.png"> Entrega rápida e rastreada </p>
+            <p class="deliveryInfos-text"> <img src="fotos/info-4.png"> O café chega fresquinho até você </p>
+
+        </div>
+
+
     </div>
-    
 
-    <div id="delivery-infos">
-
-        <p class="deliveryInfos-text"> <img src="fotos/info-1.png"> Compra simples e segura </p>
-        <p class="deliveryInfos-text"> <img src="fotos/info-2.png"> Embalagem mantém o café intacto </p>
-        <p class="deliveryInfos-text"> <img src="fotos/info-3.png"> Entrega rápida e rastreada </p>
-        <p class="deliveryInfos-text"> <img src="fotos/info-4.png"> O café chega fresquinho até você </p>
-
-    </div>
-
-    <img id="img-lateral" src="fotos/logo2.png">
 
     <h2 class="tituloCafes"> Nossos Cafés </h2>
 
     <section id="cafes">
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Expresso Tradicional.png">
+
             <p id="coffeeInfos">
                 <span id="span-1">Tradicional</span>
-                <br> Tradicional Expresso
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Tradicional Expresso </span>
                 <br> <span id="span-2"> O tradicional café feito com água quente e grãos moídos</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Expresso Americano.png">
+
             <p id="coffeeInfos">
                 <span id="span-1">Tradicional</span>
-                <br> Expresso Americano
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Expresso Americano </span>
                 <br> <span id="span-2"> Expresso Diluído, menos intenso que o tradicional </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Expresso Cremoso.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span>
-                <br> Expresso Cremoso
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Expresso Cremoso </span>
                 <br> <span id="span-2"> Café expresso tradicional com espuma cremosa</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Expresso Gelado.png">
+
             <p id="coffeeInfos">
                 <span id="span-1">Tradicional </span> <span id="span-1"> Gelado </span>
-                <br> Expresso Gelado <br> <span id="span-2"> Bebida preparada com café expresso e cubos de gelo </span>
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo">  Expresso Gelado </span>
+                <br> <span id="span-2"> Bebida preparada com café expresso e cubos de gelo </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Café com Leite.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span> <span id="span-1"> Com Leite </span>
-                <br> Café com Leite
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Café com Leite </span>
                 <br> <span id="span-2"> Meio a meio de expresso tradicional com leite vaporizado </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
-        </div>
 
-        <div>
+        </div>
+        
+        <div class="coffeeBoxes">
+
             <img src="fotos/Latte.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span> <span id="span-1"> Com Leite </span>
-                <br> Latte
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Latte </span>
                 <br> <span id="span-2"> Uma dose de café expresso com o dobro de leite e espuma cremosa</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Capuccino.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span> <span id="span-1"> Com Leite </span>
-                <br> Capuccino
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Capuccino </span>
                 <br> <span id="span-2"> Bebida com canela feita de doses iguais de café, leite e espuma </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Macchiato.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span> <span id="span-1"> Com Leite </span>
-                <br> Macchiato
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Macchiato </span>
                 <br> <span id="span-2"> Café expresso misturado com um pouco de leite quente e espuma</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Moccacino.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Tradicional </span> <span id="span-1"> Com Leite </span>
-                <br> Mocaccino
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Mocaccino </span>
                 <br> <span id="span-2"> Café expresso com calda de chocolate, pouco leite e espuma</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Chocolate Quente.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Especial </span> <span id="span-1"> Com Leite </span>
-                <br> Chocolate Quente
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Chocolate Quente </span>
                 <br> <span id="span-2"> Bebida feita com chocolate dissolvido no leite quente e café </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Cubano.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Especial </span> <span id="span-1"> Alcoólico </span> <span id="span-1"> Gelado </span>
-                <br> Cubano
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Cubano </span>
                 <br> <span id="span-2"> Drink gelado de café expresso com rum, creme de leite e hortelã</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Havaiano.png">
+
             <p id="coffeeInfos">
                 <span id="span-1"> Especial </span>
-                <br> Havaiano
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Havaiano </span>
                 <br> <span id="span-2"> Bebida adocicada preparada com café e leite de coco</span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Arabe.png">
 
             <p id="coffeeInfos">
                 <span id="span-1"> Especial </span>
-                <br> Árabe
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Árabe </span>
                 <br> <span id="span-2"> Bebida preparada com grãos de café árabe e especiarias </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
+
         </div>
 
-        <div>
+        <div class="coffeeBoxes">
+
             <img src="fotos/Irlandês.png">
 
             <p id="coffeeInfos">
                 <span id="span-1"> Especial </span> <span id="span-1"> Alcoólico </span>
-                <br> Irlandês
+                <span id="coffeePrice" style="display:none;">9.90</span>
+                <br> <span id="tipo"> Irlandês </span>
                 <br> <span id="span-2"> Bebida a base de café, uísque irlandês, açúcar e chantilly </span>
+                <br> <span id="coffeeLastLine"> <span id="preco"> R$ 9,90 </span> <span id="buttons"> <button id="menos"> - </button> <span id="qtd"> 0 </span> <button id="mais"> + </button> </span> <img src="fotos/Comprar.png" id="carrinho"> </span>
             </p>
-        </div>
 
+        </div>
         
     </section>
+
+    <div id="confirmacao">
+
+        <section id="endereco">
+
+            <h3> Complete seu pedido </h3>
+            
+            <p class="endereco"> <img src="fotos/localizacao.png"> Endereço de Entrega </p>
+            <p class="endereco2"> Informe o endereço onde deseja receber seu pedido </p>
+
+            <form id="form">
+
+                <input type="text" id="cep" name="cep" class="box1" placeholder="Digite seu CEP" minlength="8" maxlength="8" required>
+                <input type="text" id="rua" name="rua" class="box2" placeholder="Rua" disabled required data-input>
+                <input type="text" id="numero" name="numero" class="box3" placeholder="Número da Residência"  disabled required data-input>
+                <input type="text" id="complemento" name="complemento" class="box4" placeholder="Complemento   (opcional)" disabled data-input>
+                <input type="text" id="bairro" nam="bairro" class="box5" placeholder="Bairro" disabled required data-input>
+                <input type="text" id="cidade" name="cidade" class="box6" placeholder="Cidade" disabled required data-input>
+                <select name="uf" id="uf" class="box7" disabled required data-input>
+
+                    <option selected> Estado </option>
+                    <option value="AP"> AP </option>
+                    <option value="AM"> AM </option>
+                    <option value="BA"> BA </option>
+                    <option value="CE"> CE </option>
+                    <option value="DF"> DF </option>
+                    <option value="GO"> GO </option>
+                    <option value="MA"> MA </option>
+                    <option value="MT"> MT </option>
+                    <option value="MS"> MS </option>
+                    <option value="MG"> MG </option>
+                    <option value="PA"> PA </option>
+                    <option value="PB"> PB </option>
+                    <option value="PR"> PR </option>
+                    <option value="PE"> PE </option>
+                    <option value="PI"> PI </option>
+                    <option value="RJ"> RJ </option>
+                    <option value="RN"> RN </option>
+                    <option value="RS"> RS </option>
+                    <option value="RO"> RO </option>
+                    <option value="RR"> RR </option>
+                    <option value="SC"> SC </option>
+                    <option value="SP"> SP </option>
+                    <option value="SE"> SE </option>
+                    <option value="TO"> TO </option>
+
+                </select>
+
+            </form>
+
+        </section>
+
+        <aside id="lateral">
+
+            <h3> Cafés Selecionados </h3>
+
+            <div id="selecionados">
+                
+            </div>
+
+            <div id="finalizacao">
+                
+            </div>
+
+            <p id="finalizarPedido"> Confirmar Pedido </p>
+
+        </aside>
+
+    </div>
+
+    <script src="coffee.js"></script>
 
 </body>
 </html>
