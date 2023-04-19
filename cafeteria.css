@@ -184,7 +184,7 @@ h3 {
     padding: 25px;
     background-color: #F3F2F2;
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,.2);
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
 .endereco {
@@ -263,6 +263,7 @@ input {
     height: 40px;
     background-color: #EEEDED;
     border: 1px solid #E6E5E5;
+    text-indent: 10px;
 }
 
 #lateral {
@@ -321,4 +322,64 @@ input {
     border-radius: 10px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+#pagamento {
+    float: left;
+    margin-top: -25px;
+    width: 500px;
+    padding: 25px;
+    margin-bottom: 100px;
+    color: #403937;
+    background-color: #F3F2F2;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,.2);
+
+}
+
+#cabecalhoPagamento {
+    display: grid;
+    grid-template-columns: 25px 450px;
+}
+
+.svgPagamento {
+    width: 22px;
+    height: 22px;
+}
+.textPagamento {
+    font-size:16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+.pagamento {
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#formasDePagamento {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    border: 1px solid #E6E5E5;
+    background-color: #EEEDED;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#credito,#debito,#dinheiro {
+    display: none;
+}
+
+.paymentFormChecked {
+    background: #DBAC2C;
+    transition: 1.5s;
 }

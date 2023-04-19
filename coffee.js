@@ -94,7 +94,6 @@ function selecionados() {
                 pedido.splice(indexOfItem, 1)
                 selecionados()
                 end()
-                console.log(pedido)
                 return
             }
 
@@ -137,12 +136,12 @@ function end() {
     })
 
     finalizacao.innerHTML = "<p id='totalPrice'>" + "Total " + "<span class='totalPrice'>" + "R$ " + tot.toFixed(2) + "</span>" + "</p>"
-
+    valorTotal = tot.toFixed(2)
 }
 
 /* HEADER CARRINHO */
 document.querySelector("#headerCarrinho").addEventListener("click", () => {
-    window.scrollTo(0, 1650)
+    window.scrollTo(0, 1830)
 })
 
 /* Endereço */
@@ -171,9 +170,9 @@ inputCep.addEventListener("keypress", (e) => {
 
 // Pegar evento de endereço
 
-inputCep.addEventListener("keyup", (e) => {
+inputCep.addEventListener("keyup", () => {
 
-    const inputValue = e.target.value
+    const inputValue = inputCep.value
 
     // checar se temos a quantidade necessária de dígitos
 
@@ -222,7 +221,10 @@ const pegarEndereço = async (cep) => {
 
     inputUF.value = data.uf
 
-    
+    rua = data.logradouro
+
+    cidadeEUF = `${data.localidade} - ${data.uf}`
+
 }
 
 // adicionar ou remover disabled
@@ -241,16 +243,63 @@ const toggleDisabled = () => {
 
 }
 
-/*   // salvar endereço
+const paymentForm = document.querySelectorAll("input[type=radio]")
 
-form.addEventListener("submit", (e) => {
+paymentForm.forEach(p => {
 
-    e.preventDefault()
+    addEventListener("click", () => {
 
-    setTimeout(() => {
+        if (p.checked == true) {
 
-        alert("Endereço Salvo com Sucesso")
+            document.querySelector(`.${p.id}`).classList.add("paymentFormChecked")
+            paymentFormChecked = p.id
 
-    }, 1500)
+        } else {
+            
+            document.querySelector(`.${p.id}`).classList.remove("paymentFormChecked")
 
-})*/
+        }
+
+    })
+
+})
+
+let paymentFormChecked = ''
+let rua = ''
+let inputNumero = document.querySelector("#numero")
+let cidadeEUF = ''
+let valorTotal = ''
+
+document.querySelector("#finalizarPedido").addEventListener("click", () => {
+    
+    if (rua == '') {
+        alert("Favor preencher endereço")
+        return
+    }
+
+    if (inputNumero.value == '') {
+        alert("Digite o numero da residência")
+        return
+    }
+
+    if (cidadeEUF == '') {
+        alert("Cidade e Estado não selecionados")
+        return
+    }
+
+    if (paymentFormChecked == '') {
+        alert ("Escolha uma forma de pagamento")
+        return
+    }
+
+    if (valorTotal == '') {
+        return
+    }
+    
+
+    console.log(rua + " - " +"N° " + inputNumero.value)
+    console.log(cidadeEUF)
+    console.log(paymentFormChecked)
+    console.log(pedido)
+    console.log("Valor Total : " + valorTotal)
+})

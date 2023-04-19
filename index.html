@@ -257,11 +257,17 @@
             <form id="form">
 
                 <input type="text" id="cep" name="cep" class="box1" placeholder="Digite seu CEP" minlength="8" maxlength="8" required>
+
                 <input type="text" id="rua" name="rua" class="box2" placeholder="Rua" disabled required data-input>
+
                 <input type="text" id="numero" name="numero" class="box3" placeholder="Número da Residência"  disabled required data-input>
+
                 <input type="text" id="complemento" name="complemento" class="box4" placeholder="Complemento   (opcional)" disabled data-input>
+
                 <input type="text" id="bairro" nam="bairro" class="box5" placeholder="Bairro" disabled required data-input>
+
                 <input type="text" id="cidade" name="cidade" class="box6" placeholder="Cidade" disabled required data-input>
+
                 <select name="uf" id="uf" class="box7" disabled required data-input>
 
                     <option selected> Estado </option>
@@ -305,13 +311,39 @@
             </div>
 
             <div id="finalizacao">
-                
-            </div>
 
+            </div>
+            
             <p id="finalizarPedido"> Confirmar Pedido </p>
 
         </aside>
 
+        <div id="pagamento">
+
+            <div id="cabecalhoPagamento">
+                <img src="fotos/dollar-sign-solid.svg" class="svgPagamento">
+            
+                <p class="textPagamento"> Pagamento <br> <span class="pagamento"> O pagamento é feito na entrega. Escolha a forma que deseja pagar. </span> </p>
+            </div>
+            
+            <div id="formasDePagamento">
+
+                <div>
+                <input type="radio" name="paymentForm" id="credito">
+                <label for="credito" class="credito"> <img src="fotos/credit-card-solid.svg" style="width:15px; height:15px;"> Credito </label>
+                </div>
+
+                <div>
+                <input type="radio" name="paymentForm" id="debito">
+                <label for="debito" class="debito"> <img src="fotos/debit-card-solid.svg" style="width:15px; height:15px;"> Debito </label>
+                </div>
+
+                <div>
+                <input type="radio" name="paymentForm" id="dinheiro">
+                <label for="dinheiro" class="dinheiro"> <img src="fotos/money-bill-solid.svg" style="width:15px;height:15px;"> Dinheiro </label>
+                </div>
+
+            </div>
     </div>
 
     <script src="coffee.js"></script>
