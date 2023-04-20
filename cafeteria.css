@@ -320,8 +320,10 @@ input {
     font-weight: 700;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 #pagamento {
@@ -382,4 +384,8 @@ label {
 .paymentFormChecked {
     background: #DBAC2C;
     transition: 1.5s;
+}
+
+.divPedidoFinal {
+    
 }

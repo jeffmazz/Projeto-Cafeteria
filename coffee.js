@@ -6,6 +6,8 @@ const finalizacao = document.querySelector("#finalizacao")
 
 const pedido = []
 
+const pedidoConcluido = []
+
 const cafes = [
     document.getElementsByTagName('p')[5],
     document.getElementsByTagName('p')[6],
@@ -136,7 +138,7 @@ function end() {
     })
 
     finalizacao.innerHTML = "<p id='totalPrice'>" + "Total " + "<span class='totalPrice'>" + "R$ " + tot.toFixed(2) + "</span>" + "</p>"
-    valorTotal = tot.toFixed(2)
+    pedidoConcluido[5] = ({'valorTotal' : tot.toFixed(2)})
 }
 
 /* HEADER CARRINHO */
@@ -221,9 +223,9 @@ const pegarEndereço = async (cep) => {
 
     inputUF.value = data.uf
 
-    rua = data.logradouro
-
-    cidadeEUF = `${data.localidade} - ${data.uf}`
+    pedidoConcluido[0] = ({'rua' : inputRua.value})
+    pedidoConcluido[1] = ({'uf' : inputUF.value})
+    pedidoConcluido[2] = ({'cidade' : inputCidade.value})
 
 }
 
@@ -252,7 +254,7 @@ paymentForm.forEach(p => {
         if (p.checked == true) {
 
             document.querySelector(`.${p.id}`).classList.add("paymentFormChecked")
-            paymentFormChecked = p.id
+            pedidoConcluido[4] = ({'paymentFormChecked' : p.id})
 
         } else {
             
@@ -264,42 +266,43 @@ paymentForm.forEach(p => {
 
 })
 
-let paymentFormChecked = ''
-let rua = ''
-let inputNumero = document.querySelector("#numero")
-let cidadeEUF = ''
-let valorTotal = ''
-
-document.querySelector("#finalizarPedido").addEventListener("click", () => {
+document.querySelector("#finalizarPedido").addEventListener("click", (e) => {
     
-    if (rua == '') {
+    e.preventDefault()
+
+    if (pedidoConcluido[0] == null) {
         alert("Favor preencher endereço")
         return
     }
+
+    if (pedidoConcluido[1] && pedidoConcluido[2] == null) {
+        alert("Cidade e Estado não selecionados")
+        return
+    }
+
+    let inputNumero = document.querySelector("#numero")
 
     if (inputNumero.value == '') {
         alert("Digite o numero da residência")
         return
     }
 
-    if (cidadeEUF == '') {
-        alert("Cidade e Estado não selecionados")
-        return
-    }
+    pedidoConcluido[3] = ({'numero' : inputNumero.value})
 
-    if (paymentFormChecked == '') {
+    if (pedidoConcluido[4] == null) {
         alert ("Escolha uma forma de pagamento")
         return
     }
 
-    if (valorTotal == '') {
+    if (pedidoConcluido[5] == null) {
+        alert("Você não selecionou nenhum item")
         return
     }
-    
 
-    console.log(rua + " - " +"N° " + inputNumero.value)
-    console.log(cidadeEUF)
-    console.log(paymentFormChecked)
-    console.log(pedido)
-    console.log("Valor Total : " + valorTotal)
+    pedido.forEach(p => {
+        pedidoConcluido.push(p)
+    })
+
+    sessionStorage.setItem("pedidoFinal", JSON.stringify(pedidoConcluido))
+
 })
