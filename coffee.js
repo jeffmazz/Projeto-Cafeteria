@@ -223,10 +223,6 @@ const pegarEndereço = async (cep) => {
 
     inputUF.value = data.uf
 
-    pedidoConcluido[0] = ({'rua' : inputRua.value})
-    pedidoConcluido[1] = ({'uf' : inputUF.value})
-    pedidoConcluido[2] = ({'cidade' : inputCidade.value})
-
 }
 
 // adicionar ou remover disabled
@@ -266,28 +262,37 @@ paymentForm.forEach(p => {
 
 })
 
-document.querySelector("#finalizarPedido").addEventListener("click", (e) => {
-    
-    e.preventDefault()
+document.querySelector("#finalizarPedido").addEventListener("click", () => {
 
-    if (pedidoConcluido[0] == null) {
+    const rua = document.querySelector("#rua")
+    const bairro = document.querySelector("#bairro")
+    
+    
+    pedidoConcluido[0] = ({'rua' : rua.value})
+
+    if (pedidoConcluido[0].rua == "") {
         alert("Favor preencher endereço")
         return
     }
 
-    if (pedidoConcluido[1] && pedidoConcluido[2] == null) {
-        alert("Cidade e Estado não selecionados")
+    pedidoConcluido[1] = ({'uf' : inputUF.value})
+    pedidoConcluido[2] = ({'cidade' : inputCidade.value})
+    pedidoConcluido[6] = ({'bairro' : bairro.value})
+
+    if (pedidoConcluido[1].uf == "" || pedidoConcluido[2].cidade == "" || pedidoConcluido[6].bairro == "") {
+        alert("Cidade, estado ou bairro não informados")
         return
     }
 
-    let inputNumero = document.querySelector("#numero")
+    
 
-    if (inputNumero.value == '') {
+    let inputNumero = document.querySelector("#numero")
+    pedidoConcluido[3] = ({'numero' : inputNumero.value})
+
+    if (pedidoConcluido[3].numero == "") {
         alert("Digite o numero da residência")
         return
     }
-
-    pedidoConcluido[3] = ({'numero' : inputNumero.value})
 
     if (pedidoConcluido[4] == null) {
         alert ("Escolha uma forma de pagamento")
@@ -304,5 +309,7 @@ document.querySelector("#finalizarPedido").addEventListener("click", (e) => {
     })
 
     sessionStorage.setItem("pedidoFinal", JSON.stringify(pedidoConcluido))
+
+    window.location.href = "pedidoConcluido.html"
 
 })

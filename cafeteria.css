@@ -386,6 +386,81 @@ label {
     transition: 1.5s;
 }
 
-.divPedidoFinal {
-    
+.finalBody {
+    width: 1200px;
+    margin: auto;
+}
+
+h2.leftHead {
+    color: #C47F17;
+    text-indent: 30px;
+}
+
+p.leftHead {
+    color: black;
+    font-size: 12pt;
+    margin: -5px auto 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    text-indent: 30px;
+}
+
+div.pedidoFinal {
+    border: 1px solid #C47F17;
+    border-radius: 30px;
+    width: 500px;
+    padding: 30px;
+}
+
+div.pedidoFinal p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+#enderecoEntrega {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 210px 250px;
+}
+
+#a1,#b1,#c1 {
+    font-family: Arial, Helvetica, sans-serif;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#a2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+#a3,#b3,#c3 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+#a4 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+#imgMoney {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(128,71,248);
+    padding: 9px;
+    border-radius: 20px;
+}
+
+#gridFinalPage {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    gap: 150px;
+}
+
+.resumoDeCompra {
+    color: #C47F17;
+    text-align: left;
 }
