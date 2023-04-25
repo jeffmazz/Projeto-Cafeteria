@@ -24,11 +24,31 @@ body {
     cursor: pointer;
 }
 
-#cabecalho {/*
-    width: 900px;
-    text-align: left;
-    padding-top: 50px;
-    margin: auto;*/
+.headerCarrinho {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F1E9C9;
+    cursor: pointer;
+
+    transform: translateY(0px);
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px)
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+#cabecalho {
     box-sizing: border-box;
     width: 900px;
     margin: auto;
@@ -463,4 +483,23 @@ div.pedidoFinal p {
 .resumoDeCompra {
     color: #C47F17;
     text-align: left;
+}
+
+.deliveryPhoto {
+    transform: translateX(0px);
+    animation: run 3s ease-in-out infinite;
+}
+
+@keyframes run {
+    0% {
+        transform: translateX(0px)
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
 }

@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
     let sessionStorageJSONparse = JSON.parse(sessionStorageJSONstringify)
     console.log(sessionStorageJSONparse)
 
-    document.querySelector("#enderecoEntrega").innerHTML += `<span id="a2"> ${sessionStorageJSONparse[0].rua}, ${sessionStorageJSONparse[3].numero} </span> <span id="a3"> ${sessionStorageJSONparse[6].bairro}</span> <span id="a4"> ${sessionStorageJSONparse[2].cidade} - ${sessionStorageJSONparse[1].uf} </span>`
+    document.querySelector("#enderecoEntrega").innerHTML += `<span id="a2"> ${sessionStorageJSONparse[0].rua}, N° ${sessionStorageJSONparse[3].numero} </span> <span id="a3"> ${sessionStorageJSONparse[6].bairro}</span> <span id="a4"> ${sessionStorageJSONparse[2].cidade} - ${sessionStorageJSONparse[1].uf} </span>`
 
     document.querySelector("#pagamentoEntrega").innerHTML += `<span id="b3"> ${sessionStorageJSONparse[4].paymentFormChecked} </span>`
 

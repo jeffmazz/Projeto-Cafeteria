@@ -42,6 +42,7 @@ cafes.forEach(cafe => {
         }
 
         qtd.innerHTML ++
+
     })
 
     menos.addEventListener("click", () => {
@@ -51,11 +52,12 @@ cafes.forEach(cafe => {
         }
 
         qtd.innerHTML --
+    
     })
 
     carrinho.addEventListener("click", () => {
 
-        if (qtd.innerHTML == 0 ) {
+        if (qtd.innerHTML == 0) {
             return
         }
 
@@ -66,6 +68,7 @@ cafes.forEach(cafe => {
         })
 
         qtd.innerHTML = 0
+        notificacaoCarrinho()
         selecionados()
         end()
 
@@ -94,6 +97,7 @@ function selecionados() {
             
             if (item.qtd == 1) {
                 pedido.splice(indexOfItem, 1)
+                notificacaoCarrinho()
                 selecionados()
                 end()
                 return
@@ -267,7 +271,6 @@ document.querySelector("#finalizarPedido").addEventListener("click", () => {
     const rua = document.querySelector("#rua")
     const bairro = document.querySelector("#bairro")
     
-    
     pedidoConcluido[0] = ({'rua' : rua.value})
 
     if (pedidoConcluido[0].rua == "") {
@@ -284,22 +287,16 @@ document.querySelector("#finalizarPedido").addEventListener("click", () => {
         return
     }
 
-    
-
     let inputNumero = document.querySelector("#numero")
     pedidoConcluido[3] = ({'numero' : inputNumero.value})
 
     if (pedidoConcluido[3].numero == "") {
         alert("Digite o numero da residência")
         return
-    }
-
-    if (pedidoConcluido[4] == null) {
+    } else if (pedidoConcluido[4] == null) {
         alert ("Escolha uma forma de pagamento")
         return
-    }
-
-    if (pedidoConcluido[5] == null) {
+    } else if (pedido.length == 0) {
         alert("Você não selecionou nenhum item")
         return
     }
@@ -313,3 +310,15 @@ document.querySelector("#finalizarPedido").addEventListener("click", () => {
     window.location.href = "pedidoConcluido.html"
 
 })
+
+function notificacaoCarrinho() {
+
+    if (pedido.length != 0) {
+        document.getElementById("headerCarrinho").src = "fotos/carrinhoN pixlrX.png"
+        document.getElementsByTagName("img")[1].classList.add("headerCarrinho")
+    } else {
+        document.getElementById("headerCarrinho").src = "fotos/carrinho.png"
+        document.getElementsByTagName("img")[1].classList.remove("headerCarrinho")
+    }
+
+}
