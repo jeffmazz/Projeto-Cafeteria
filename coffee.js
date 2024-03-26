@@ -45,7 +45,6 @@ cafes.forEach(cafe => {
         if (qtd.innerHTML <=0) {
             return
         }
-
         qtd.innerHTML --
     
     })

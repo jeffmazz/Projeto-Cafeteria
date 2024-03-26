@@ -498,11 +498,9 @@ div.pedidoFinal p {
     0% {
         transform: translateX(0px)
     }
-
     50% {
         transform: translateX(100px);
     }
-
     100% {
         transform: translateX(0px)
     }

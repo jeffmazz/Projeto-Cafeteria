@@ -10,8 +10,6 @@ window.addEventListener("load", () => {
 
     document.querySelector("#valorTotalEntrega").innerHTML += `<span id="c3"> R$ ${sessionStorageJSONparse[5].valorTotal} </span>`
 
-    
-
     for (indexOfSessionStorage = 7 ; indexOfSessionStorage < sessionStorageJSONparse.length ; indexOfSessionStorage++) {
 
         let p = document.createElement("p")
