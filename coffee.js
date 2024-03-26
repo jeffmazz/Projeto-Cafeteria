@@ -36,11 +36,6 @@ cafes.forEach(cafe => {
 
     mais.addEventListener("click", () => {
 
-        if (qtd.innerHTML >=15) {
-            alert("Limite Atingido")
-            return
-        }
-
         qtd.innerHTML ++
 
     })
@@ -58,6 +53,26 @@ cafes.forEach(cafe => {
     carrinho.addEventListener("click", () => {
 
         if (qtd.innerHTML == 0) {
+            return
+        }
+
+        if(pedido.some(p => p.tipo == tipo.innerHTML)) {
+
+            let index = pedido.findIndex(p => p.tipo == tipo.innerHTML)
+
+            let qtdAtual = ((Number.parseFloat(pedido[index].qtd) + Number.parseFloat(qtd.innerHTML)))
+            let precoAtual = ((Number.parseFloat(pedido[index].preco) + Number.parseFloat(preco.innerHTML*qtd.innerHTML)).toFixed(2))
+            
+            pedido[index] = {
+                'qtd' : qtdAtual,
+                'tipo' : tipo.innerHTML,
+                'preco' : precoAtual
+            }
+
+            qtd.innerHTML = 0
+            notificacaoCarrinho()
+            selecionados()
+            end()
             return
         }
 
@@ -110,11 +125,6 @@ function selecionados() {
         })
 
         btnMais.addEventListener("click", () => {
-
-            if (item.qtd == 15) {
-                return
-            }
-
             item.qtd ++
             item.preco = (parseFloat(item.preco) + parseFloat(9.90)).toFixed(2)
             selecionados()
@@ -157,6 +167,8 @@ const inputCep = document.querySelector("#cep")
 const inputRua = document.querySelector("#rua")
 const inputBairro = document.querySelector("#bairro")
 const inputCidade = document.querySelector("#cidade")
+const inputNumero = document.querySelector("#numero")
+const inputComplemento = document.querySelector("#complemento")
 const inputUF = document.querySelector("#uf")
 const formInputs = document.querySelectorAll("[data-input]")
 
@@ -194,55 +206,54 @@ const pegarEndereço = async (cep) => {
     
     inputCep.blur()
 
+    resetForm()
+
     const apiUrl = `https://viacep.com.br/ws/${cep}/json`
 
     const response = await fetch(apiUrl)
 
     const data = await response.json()
 
-    console.log(data)
-
     // mostrar erro e resetar formulario
 
     if (data.erro === true) {
-
-        if (!inputRua.hasAttribute("disabled")) {
-            toggleDisabled()
-        }
-
         form.reset()
         alert("Endereço Inválido, Tente novamente.")
+        inputCep.focus()
         return
     }
 
-    if (inputCidade.value == "") {
-        toggleDisabled()
-    }
-
-    inputRua.value = data.logradouro
-
-    inputBairro.value = data.bairro
-
-    inputCidade.value = data.localidade
-
-    inputUF.value = data.uf
+    fillForm(data)
 
 }
 
-// adicionar ou remover disabled
-
-const toggleDisabled = () => {
-
-    if (inputUF.hasAttribute('disabled')) {
-        formInputs.forEach((input) => {
-            input.removeAttribute("disabled")
-        })
+function fillForm(data) {
+    if(data.logradouro) {
+        inputRua.value = data.logradouro
     } else {
-        formInputs.forEach((input) => {
-            input.setAttribute("disabled", "disabled")
-        })
+        inputRua.removeAttribute("disabled")
     }
 
+    inputNumero.removeAttribute("disabled")
+    inputComplemento.removeAttribute("disabled")
+    
+    if(data.bairro) {
+        inputBairro.value = data.bairro
+    } else {
+        inputBairro.removeAttribute("disabled")
+    }
+
+    inputCidade.value = data.localidade
+    inputUF.value = data.uf
+}
+
+function resetForm() {
+    form.reset()
+    inputRua.setAttribute("disabled","disabled")
+    inputNumero.setAttribute("disabled","disabled")
+    inputComplemento.setAttribute("disabled","disabled")
+    inputBairro.setAttribute("disabled","disabled")
+    inputCidade.setAttribute("disabled","disabled")
 }
 
 const paymentForm = document.querySelectorAll("input[type=radio]")
@@ -314,11 +325,52 @@ document.querySelector("#finalizarPedido").addEventListener("click", () => {
 function notificacaoCarrinho() {
 
     if (pedido.length != 0) {
-        document.getElementById("headerCarrinho").src = "fotos/carrinhoN pixlrX.png"
-        document.getElementsByTagName("img")[1].classList.add("headerCarrinho")
+            document.getElementById("headerCarrinho").src = "fotos/carrinhoN pixlrX.png"
+            document.getElementsByTagName("img")[1].classList.add("headerCarrinho")
     } else {
         document.getElementById("headerCarrinho").src = "fotos/carrinho.png"
         document.getElementsByTagName("img")[1].classList.remove("headerCarrinho")
     }
 
 }
+
+window.addEventListener('scroll', () => {
+    let scrollY = window.scrollY
+
+    if (scrollY > 1510) {
+
+        if(headerCarrinho.style.opacity < 1) return
+        
+        let opacityValue = 0.5;
+      
+        let intervalId = setInterval(fadeOutGradualmente, 100);
+      
+        function fadeOutGradualmente() {
+          if (opacityValue > 0) {
+            opacityValue -= 0.1
+            headerCarrinho.style.opacity = opacityValue
+          } else {
+            clearInterval(intervalId)
+          }
+        }
+
+    } else {
+        
+        if(headerCarrinho.style.opacity > 0) return
+        
+        let opacityValue = 0.5
+
+        let intervalId = setInterval(fadeInGradualmente,100)
+
+        function fadeInGradualmente() {
+            if (opacityValue < 1) {
+                opacityValue += 0.1
+                headerCarrinho.style.opacity = opacityValue
+            } else {
+                clearInterval(intervalId)
+            }
+        }
+
+    }
+    
+})

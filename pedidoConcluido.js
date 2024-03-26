@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
 
     let sessionStorageJSONstringify = sessionStorage.getItem('pedidoFinal')
+
     let sessionStorageJSONparse = JSON.parse(sessionStorageJSONstringify)
-    console.log(sessionStorageJSONparse)
 
     document.querySelector("#enderecoEntrega").innerHTML += `<span id="a2"> ${sessionStorageJSONparse[0].rua}, N° ${sessionStorageJSONparse[3].numero} </span> <span id="a3"> ${sessionStorageJSONparse[6].bairro}</span> <span id="a4"> ${sessionStorageJSONparse[2].cidade} - ${sessionStorageJSONparse[1].uf} </span>`
 
@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
 
     
 
-    for (indexOfSessionStorage = 7 ; indexOfSessionStorage <= sessionStorageJSONparse.length ; indexOfSessionStorage++) {
+    for (indexOfSessionStorage = 7 ; indexOfSessionStorage < sessionStorageJSONparse.length ; indexOfSessionStorage++) {
 
         let p = document.createElement("p")
 

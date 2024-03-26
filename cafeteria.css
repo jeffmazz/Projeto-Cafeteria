@@ -18,7 +18,11 @@ body {
 }
 
 #headerCarrinho {
-    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    right:58px;
+    bottom: 300px;
+    padding: 15px;
     border-radius: 15px;
     background-color: #F1E9C9;
     cursor: pointer;
